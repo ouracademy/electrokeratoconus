@@ -9,5 +9,8 @@
   "devDependencies": {
     "electron": "^7.1.5",
     "prettier": "1.19.1"
+  },
+  "dependencies": {
+    "chokidar": "^3.3.1"
   }
 }
