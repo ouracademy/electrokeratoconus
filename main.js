@@ -24,6 +24,20 @@ function createWindow() {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 
+  mainWindow.on("minimize", function(event) {
+    event.preventDefault();
+    mainWindow.hide();
+  });
+
+  mainWindow.on("close", function(event) {
+    if (!app.isQuiting) {
+      event.preventDefault();
+      mainWindow.hide();
+    }
+
+    return false;
+  });
+
   // Emitted when the window is closed.
   // Dereference the window object, usually you would store windows
   mainWindow.on("closed", function() {
@@ -33,6 +47,8 @@ function createWindow() {
   });
 }
 
+const title = "ElectroKeratoconus";
+
 const path = require("path");
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -41,12 +57,21 @@ app.on("ready", () => {
   createWindow();
   tray = new Tray(path.join(__dirname, "favicon-16x16.png"));
   const contextMenu = Menu.buildFromTemplate([
-    { label: "Item1", type: "radio" },
-    { label: "Item2", type: "radio" },
-    { label: "Item3", type: "radio", checked: true },
-    { label: "Item4", type: "radio" }
+    {
+      label: `Ver ${title}`,
+      click: () => {
+        mainWindow.show();
+      }
+    },
+    {
+      label: "Salir",
+      click: () => {
+        app.isQuiting = true;
+        app.quit();
+      }
+    }
   ]);
-  tray.setToolTip("This is my application.");
+  tray.setToolTip(title);
   tray.setContextMenu(contextMenu);
 });
 
