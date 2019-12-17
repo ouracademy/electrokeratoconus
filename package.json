@@ -1,6 +1,6 @@
 {
   "name": "electrokeratoconus",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "ElectroKeratoconus desktop client",
   "repository": {
     "url": "https://github.com/ouracademy/electrokeratoconus"
@@ -15,7 +15,7 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "release": "electron-builder build"
+    "release": "electron-builder build -p always"
   },
   "devDependencies": {
     "electron": "^7.1.5",
