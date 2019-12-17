@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "ElectroKeratoconus desktop client",
   "main": "main.js",
+  "author": {
+    "url": "https://our-academy.org/",
+    "name": "Ouracademy",
+    "email": "dev@our-academy.org"
+  },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "devDependencies": {
     "electron": "^7.1.5",
+    "electron-builder": "^21.2.0",
     "prettier": "1.19.1"
   },
   "dependencies": {

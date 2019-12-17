@@ -1,0 +1,7 @@
+appId: "org.ouracademy.keratoconus"
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - ia32
