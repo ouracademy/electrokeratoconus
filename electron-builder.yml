@@ -6,3 +6,4 @@ win:
         - x64
         - ia32
 files: ["**/*", "build/*"]
+publish: [github]
