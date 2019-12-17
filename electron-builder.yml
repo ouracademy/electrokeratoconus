@@ -5,3 +5,4 @@ win:
       arch:
         - x64
         - ia32
+files: ["**/*", "build/*"]

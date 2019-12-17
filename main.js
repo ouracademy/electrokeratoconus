@@ -8,7 +8,7 @@ let mainWindow;
 let tray;
 
 const title = "ElectroKeratoconus";
-const icon = "favicon-16x16.png";
+const icon = path.join(__dirname, "build", "icon.ico");
 
 function createWindow() {
   // Create the browser window.
@@ -29,12 +29,12 @@ function createWindow() {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 
-  mainWindow.on("minimize", function(event) {
+  mainWindow.on("minimize", function (event) {
     event.preventDefault();
     mainWindow.hide();
   });
 
-  mainWindow.on("close", function(event) {
+  mainWindow.on("close", function (event) {
     if (!app.isQuiting) {
       event.preventDefault();
       mainWindow.hide();
@@ -45,7 +45,7 @@ function createWindow() {
 
   // Emitted when the window is closed.
   // Dereference the window object, usually you would store windows
-  mainWindow.on("closed", function() {
+  mainWindow.on("closed", function () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
@@ -57,7 +57,7 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.on("ready", () => {
   createWindow();
-  tray = new Tray(path.join(__dirname, icon));
+  tray = new Tray(icon);
   const contextMenu = Menu.buildFromTemplate([
     {
       label: `Ver ${title}`,
@@ -78,13 +78,13 @@ app.on("ready", () => {
 });
 
 // Quit when all windows are closed.
-app.on("window-all-closed", function() {
+app.on("window-all-closed", function () {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== "darwin") app.quit();
 });
 
-app.on("activate", function() {
+app.on("activate", function () {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow();
