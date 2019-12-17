@@ -2,6 +2,9 @@
   "name": "electrokeratoconus",
   "version": "1.0.0",
   "description": "ElectroKeratoconus desktop client",
+  "repository": {
+    "url": "https://github.com/ouracademy/electrokeratoconus"
+  },
   "main": "main.js",
   "author": {
     "url": "https://our-academy.org/",
@@ -11,7 +14,8 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "release": "electron-builder build"
   },
   "devDependencies": {
     "electron": "^7.1.5",
@@ -19,6 +23,7 @@
     "prettier": "1.19.1"
   },
   "dependencies": {
-    "chokidar": "^3.3.1"
+    "chokidar": "^3.3.1",
+    "electron-updater": "^4.2.0"
   }
 }
