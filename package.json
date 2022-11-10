@@ -18,7 +18,7 @@
     "release": "electron-builder build -p always"
   },
   "devDependencies": {
-    "electron": "^7.1.5",
+    "electron": "^18.3.7",
     "electron-builder": "^21.2.0",
     "prettier": "1.19.1"
   },
